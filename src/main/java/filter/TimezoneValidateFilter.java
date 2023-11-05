@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.DateTimeException;
 import java.time.ZoneId;
+import java.util.Arrays;
 
 @WebFilter("/time")
 public class TimezoneValidateFilter extends HttpFilter {
@@ -21,7 +22,7 @@ public class TimezoneValidateFilter extends HttpFilter {
             return;
         }
 
-        // UTC+3 decoded to UTC 3
+        // UTC+X decoded to UTC X
         String timeZone = req.getParameter("timezone")
                 .replace(' ', '+');
         try {
